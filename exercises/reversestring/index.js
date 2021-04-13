@@ -7,6 +7,7 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
+  debugger;
   return str.split('').reverse().join('');
 }
 
@@ -20,5 +21,7 @@ function reverse(str) {
 
 //   return reversed;
 // };
+
+reverse('asdf');
 
 module.exports = reverse;
