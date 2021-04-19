@@ -8,6 +8,22 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-function chunk(array, size) {}
+/*
+Have single array and chunk size input
+Want array of multiple arrays whose length === chunk size input
+*/
+
+function chunk(array, size) {
+  let chunked = [];
+
+  for (let element of array) {
+    let last = chunked[chunked.length - 1];
+    !last || last.length === size
+      ? chunked.push([element])
+      : last.push(element);
+  }
+
+  return chunked;
+}
 
 module.exports = chunk;
