@@ -13,17 +13,29 @@ Have single array and chunk size input
 Want array of multiple arrays whose length === chunk size input
 */
 
-function chunk(array, size) {
+const chunk = (array, size) => {
   let chunked = [];
+  let index = 0;
 
-  for (let element of array) {
-    let last = chunked[chunked.length - 1];
-    !last || last.length === size
-      ? chunked.push([element])
-      : last.push(element);
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
   }
 
   return chunked;
-}
+};
+
+// function chunk(array, size) {
+//   let chunked = [];
+
+//   for (let element of array) {
+//     let last = chunked[chunked.length - 1];
+//     !last || last.length === size
+//       ? chunked.push([element])
+//       : last.push(element);
+//   }
+
+//   return chunked;
+// }
 
 module.exports = chunk;
