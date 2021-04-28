@@ -10,4 +10,54 @@
 
 function anagrams(stringA, stringB) {}
 
+// Video Solution:
+// function anagrams(stringA, stringB) {
+//   function buildCharMap(str) {
+//     const charMap = {};
+
+//     for (let char of str.replace(/[^\w]/g).toLowerCase()) {
+//       charMap[char] = charMap[char] + 1 || 1;
+//     }
+//     return charMap;
+//   }
+
+//   const aCharMap = buildCharMap(stringA);
+//   const bCharMap = buildCharMap(stringB);
+
+//   if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+//     return false;
+//   }
+
+//   for (let char in aCharMap) {
+//     if (aCharMap[char] !== bCharMap[char]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// ORIGINAL solution:
+//
+// function anagrams(stringA, stringB) {
+//   createCharMap = (str) => {
+//     const mapped = str
+//       .replace(/[^\w]/g, '')
+//       .toLowerCase()
+//       .split('')
+//       .reduce((map, letter) => {
+//         !map[letter] ? (map[letter] = 1) : map[letter]++;
+//         return map;
+//       }, {});
+//     const sorted = Object.keys(mapped)
+//       .sort()
+//       .reduce((res, key) => ((res[key] = mapped[key]), res), {});
+//     return sorted;
+//   };
+//   return (
+//     JSON.stringify(createCharMap(stringA)) ===
+//     JSON.stringify(createCharMap(stringB))
+//   );
+// }
+
 module.exports = anagrams;
